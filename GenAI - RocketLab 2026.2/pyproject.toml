@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cinedata-agent"
+version = "0.1.0"
+description = "Agente Text-to-SQL do CineData Analytics"
+requires-python = ">=3.11"
+dependencies = ["pydantic-ai-slim[openrouter]>=1.0,<2", "python-dotenv>=1.0,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+cinedata = "cinedata.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["cinedata*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
